@@ -14,9 +14,10 @@ public class OrderService {
     public OrderService(){
         this.mealList.add(new Meal("hamburger", 100, "This is delicious"));
         this.mealList.add(new Meal("Apple juice", 30, "This is delicious22"));
-        this.orderList.add(new Order(1, 100, "Bill", mealList));
+        this.mealList.add(new Meal("Apple pie", 250, "This is delicious250"));
+        this.orderList.add(new Order(1, "Bill", mealList));
     }
-
+    // 依照單號seq取得該筆orderList
     public Order getOrderBySeq(int seq){
         for(int i = 0; i < this.orderList.size(); i++){
             if(this.orderList.get(i).getSeq() == seq){
@@ -26,13 +27,15 @@ public class OrderService {
         return null;
     }
 
-    public Meal getMealList(String name){
-        for (int i = 0; i < this.mealList.size(); i++) {
-            if (this.mealList.get(i).getName().toLowerCase().equals(name.toLowerCase())){
-                return this.mealList.get(i);
+    // 依照單號seq取得該單號的總額
+    public int getTotal(int seq){
+        int num = 0;
+        for(int i = 0; i < this.orderList.size(); i++){
+            if(this.orderList.get(i).getSeq() == seq) {
+                num += this.orderList.get(i).getTotalPrice();
             }
         }
-        return null;
+        return num;
     }
 
 }

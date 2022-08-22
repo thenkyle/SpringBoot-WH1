@@ -8,10 +8,9 @@ public class Order {
     private String waiter;
     private List<Meal> meals;
 
-    public Order(int seq, int totalPrice, String waiter, List<Meal> meals){
+    public Order(int seq, String waiter, List<Meal> meals){
         super();
         this.seq = seq;
-        this.totalPrice = totalPrice;
         this.waiter = waiter;
         this.meals = meals;
     }
@@ -23,7 +22,14 @@ public class Order {
         this.seq = seq;
     }
     public int getTotalPrice(){
+        int totalPrice = 0;
+        for(Meal meal: this.meals) {
+            totalPrice += meal.getPrice();
+        }
         return totalPrice;
+    }
+    public void setTotalPrice(int totalPrice){
+        this.totalPrice = totalPrice;
     }
     public String getWaiter(){
         return waiter;
