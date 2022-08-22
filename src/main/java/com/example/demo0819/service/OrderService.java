@@ -28,14 +28,13 @@ public class OrderService {
     }
 
     // 依照單號seq取得該單號的總額
-    public int getTotal(int seq){
+    public int getTotal(int seq) {
         int num = 0;
-        for(int i = 0; i < this.orderList.size(); i++){
-            if(this.orderList.get(i).getSeq() == seq) {
+        for (int i = 0; i < this.orderList.size(); i++) {
+            if (this.orderList.get(i).getSeq() == seq) {
                 num += this.orderList.get(i).getTotalPrice();
             }
         }
-        return num ;
+        return num;
     }
-
 }
