@@ -35,7 +35,7 @@ public class OrderService {
                 num += this.orderList.get(i).getTotalPrice();
             }
         }
-        return num;
+        return num ;
     }
 
 }
