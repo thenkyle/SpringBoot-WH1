@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 th:text="'單號：'+${order.seq}+' 價錢：'+${order.totalPrice}+' 服務人員:'+${order.waiter}"></h2>
+<h2 th:text="'餐點'"></h2>
+<tr th:each="meal: ${order.meals}">
+    <td th:text="'名稱: '+${meal.name}+' 價錢:'+${meal.price}"></td><br>
+</tr>
+</body>
+</html>
